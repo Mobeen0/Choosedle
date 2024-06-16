@@ -1,5 +1,5 @@
 import choosedleLogo from '../assets/ChoosedleLogo.jfif';
-
+import { FaGithub } from "react-icons/fa";
 
 function Navbar(){
 
@@ -10,8 +10,11 @@ function Navbar(){
                     <img src = {choosedleLogo} className = "logoimg" />
                     <span className= "pl-3 font-black text-3xl text-white tracking-widest">ChooseDle</span>
                 </div>
-                <div className = "text-center basis 6">
-                    <span>Other Half</span>
+                <div className = "text-center basis 6 flex flex-row items-center">
+                    <a href= "https://github.com/Mobeen0" target = '_blank'>
+                        <FaGithub className = "text-3xl text-white hover:text-cyan-400 duration-150" />
+                    </a>
+                    <span className = "pl-2 pr-1">Created by Muhammad Mobeen</span>
                 </div>
                 
             </nav>
