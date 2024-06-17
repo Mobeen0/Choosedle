@@ -8,14 +8,14 @@ import wordleIm from '../assets/wordleIm.jpg'//words
 let clientInfo =[
     {
         toshow: spotifyIm,
-        heading: "Songs-Worldle",
+        heading: "Songs-Wordle",
         description:"Guess the song title in 6 attempts or less! Identify the hidden song from a mix of genres, artists and even albums.",
         mainColor: "#1db954",
         secondColor: "#191414"
     },
     {
         toshow: netflixIm,
-        heading: "TV-Shows-Worldle",
+        heading: "TV-Shows-Wordle",
         description:"Lights, camera, guess! Try to solve the TV show title in 6 attempts or less, from sitcoms to dramas and everything in between.",
         mainColor: "#e50914",
         secondColor: "#221f1f"

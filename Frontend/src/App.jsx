@@ -1,21 +1,25 @@
+import {useState} from 'react';
+
 import './App.css'
 import './stylesheet/scrollbar.css';
 import './stylesheet/global.css';
+
 import Navbar from './components/Navbar';
 import Background from './components/Background';
 import DisplayGames from './components/DisplayGames';
-
-import {Scrollbar} from 'smooth-scrollbar-react';
+import SearchBar from './components/SearchBar';
 
 
 function App() {
+  let [searchVal,setSearchVal] = useState('');
 
   return (
     <div>
       <div className = "scroll-smooth overflow-x-hidden">
             <Background />
             <Navbar />
-            <DisplayGames />
+            <SearchBar updateContent = {setSearchVal} />
+            <DisplayGames filterContent= {searchVal} />
       </div>
     </div>
   )

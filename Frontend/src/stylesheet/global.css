@@ -35,6 +35,27 @@ span{
     animation: widening linear 4s infinite;
 }
 
+
+.searchClass{
+    font-family: 'Poppins', sans-serif;
+    width: 10%;
+    height: 40px;
+    font-size: 0.8em;
+  }
+  
+  .searchClass:focus{
+    animation: expand 1.5s forwards;
+  }
+  
+  @keyframes expand {
+    0% {
+      width: 10%;
+    }
+    100% {
+      width: 40%;
+    }
+  }
+
 @keyframes widening{
     0%{
         letter-spacing:0.1em;
