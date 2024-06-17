@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
+
 .imageCont{
     height:auto;
     width:5%;
@@ -27,4 +28,37 @@ span{
     border-radius:50%;
     filter: grayscale(90%);
     cursor:pointer;
+    
+}
+
+.logoName{
+    animation: widening linear 4s infinite;
+}
+
+@keyframes widening{
+    0%{
+        letter-spacing:0.1em;
+    }
+    50%{
+        letter-spacing:0.13em;
+    }
+    100%{
+        letter-spacing:0.1em;
+    }
+
+}
+
+@keyframes floaty{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-6px);
+    }
+    90%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(0);
+    }
 }

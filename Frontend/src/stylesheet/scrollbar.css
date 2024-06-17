@@ -1,0 +1,27 @@
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 12px; /* scrollbar width */
+  height: 12px; /* scrollbar height */
+  background-color: rgba(0, 0, 0, 0.2); /* scrollbar background color */
+}
+
+/* Scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom, #66D9EF, cyan); /* holographic gradient effect */
+  background-size: 100% 200px; /* gradient size */
+  background-position: 0% 100%; /* gradient position */
+  border-radius: 10px; /* handle rounded corners */
+  border: 2px solid rgba(0, 0, 0, 0.2); /* handle border */
+}
+
+/* Scrollbar handle hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background-position: 0% 0%; /* move gradient to top on hover */
+}
+
+/* Scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1); /* scrollbar track background color */
+  border-radius: 10px; /* track rounded corners */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); /* track shadow */
+}

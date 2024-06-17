@@ -1,20 +1,22 @@
 import './App.css'
+import './stylesheet/scrollbar.css';
 import './stylesheet/global.css';
 import Navbar from './components/Navbar';
 import Background from './components/Background';
-import GameCard from './components/GameCard';
 import DisplayGames from './components/DisplayGames';
 
-import testImage from './assets/testImage.jpg';
+import {Scrollbar} from 'smooth-scrollbar-react';
+
 
 function App() {
 
   return (
-    <div className = "scroll-smooth">
-      <Background />
-      <Navbar />
-      <DisplayGames />
-      
+    <div>
+      <div className = "scroll-smooth overflow-x-hidden">
+            <Background />
+            <Navbar />
+            <DisplayGames />
+      </div>
     </div>
   )
 }

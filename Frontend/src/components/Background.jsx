@@ -3,7 +3,7 @@ import '../stylesheet/background.css';
 function Background(){
 
     return(
-        <div className = "w-full h-screen absolute backgroundContainer flex flex-col overflow-hidden z-0">
+        <div className = "w-full h-screen fixed backgroundContainer flex flex-col overflow-hidden z-0">
             <div className = "row1 relative w-full flex whitespace-nowrap">
                 <div>
                     <i className="fa fa-rss" aria-hidden="true"></i>
