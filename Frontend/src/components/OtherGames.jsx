@@ -3,7 +3,7 @@ import VanillaGameRow from './VanillaGameRow';
 
 import {useState,useEffect} from 'react';
 
-function MainGame(props) {
+function OtherGames(props) {
   let [counter,setCounter] = useState(0);
   let [currRow,setCurrRow] = useState(0);
   let [currWord,setCurrWord] = useState(Array(5).fill(''));
@@ -85,12 +85,16 @@ function MainGame(props) {
   return (
     <div className = "flex flex-col justify-center items-center relative">
       <div className = "text-3xl font-black">
-        <span>Vanilla Worlde</span>
+        <span>{props.gameName}</span>
       </div>
         <div className = "flex flex-col rounded-xl mainGame text-center mt-5 opacity-75" tabIndex={0} onKeyDown = {handleKeyDown}
          contentEditable="true" autoFocus style = {{ caretColor: 'transparent' }}>
             <div className = 'text-2xl font-black'>
               <span className = 'text-black'>Tries Left = {6-currRow}</span>
+            </div>
+
+            <div className = "otherGameImage aspect-square bg-black self-center mb-3">
+
             </div>
 
             <VanillaGameRow wordPassed = {currWord1} />
@@ -106,4 +110,4 @@ function MainGame(props) {
   )
 }
 
-export default MainGame
+export default OtherGames

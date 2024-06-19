@@ -15,7 +15,7 @@ function DisplayGames(props){
         }
     )
     return(
-        <div className = "grid grid-cols-3 justify-items-center items-center gap-y-9 mt-20 portrait:grid-cols-1">
+        <div className = "grid grid-cols-3 justify-items-center items-center gap-y-9 mt-20 portrait:grid-cols-1 portrait:mt-5">
             {
                 filteredList.map(
                     (game,index)=>{

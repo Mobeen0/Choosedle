@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes,useLocation } from 'react-router-dom';
 
 import './App.css'
 import './stylesheet/scrollbar.css';
@@ -10,13 +10,14 @@ import Background from './components/Background';
 import DisplayGames from './components/DisplayGames';
 import SearchBar from './components/SearchBar';
 import MainGame from './components/MainGame';
+import OtherGames from './components/OtherGames';
 
 
 
 
 function App() {
   let [searchVal,setSearchVal] = useState('');
-
+  const path = useLocation();
   return (
     <div>
       <div className = "scroll-smooth overflow-x-hidden overscroll-container">
@@ -37,9 +38,7 @@ function App() {
                />
                <Route path = "/:wildcard" element =
                 {
-                <div>
-                  THIS IS GONNA BE THAT THING
-                </div>
+                <OtherGames gameName={path.pathname.slice(1)}/>
                 } 
                />
             </Routes>

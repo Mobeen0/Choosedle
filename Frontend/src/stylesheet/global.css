@@ -94,3 +94,10 @@ span{
         width:400px;
     }
 }
+
+.otherGameImage{
+    width:250px;
+    @media(orientation:portrait){
+        width:170px;
+    }
+}
