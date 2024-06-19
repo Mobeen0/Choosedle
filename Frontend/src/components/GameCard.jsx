@@ -32,7 +32,7 @@ function GameCard(props){
             <div className="m-2">
                 <Link role='button' to={`${props.heading}`} className="text-white bg-purple-600 px-3 py-1 rounded-md flex flex-row items-center duration-75"
                  style = {{background:`${props.secondColor}`, color:`${props.primColor}`}} ref = {anchorRef} 
-                 onMouseEnter = {hoverState} onMouseLeave = {originalState}> 
+                 onMouseEnter = {hoverState} onMouseLeave = {originalState} onClick = {()=>props.updateContent('')}> 
                     <IoPlayCircleSharp className = "text-3xl" /> 
                     <span>Play</span>
                 </Link>

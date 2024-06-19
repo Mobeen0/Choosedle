@@ -6,7 +6,6 @@ function DisplayGames(props){
     let filteredList = gameInfo.filter(
         (game)=>{
             const searchContent = props.filterContent.toUpperCase().split(' ');
-            console.log(searchContent);
             return(
                 (
                     (game.heading && searchContent.some(word=>game.heading.toUpperCase().includes(word))) ||
@@ -22,7 +21,7 @@ function DisplayGames(props){
                     (game,index)=>{
                         return(
                             <GameCard toshow = {game.toshow} heading ={game.heading} description = {game.description} 
-                            primColor = {game.mainColor} secondColor = {game.secondColor} />
+                            primColor = {game.mainColor} secondColor = {game.secondColor} updateContent = {props.UpdateContent} />
                         )
                     }
                 )

@@ -22,13 +22,25 @@ function App() {
       <div className = "scroll-smooth overflow-x-hidden overscroll-container">
             <Background />
             <Navbar />
-            <SearchBar updateContent = {setSearchVal} />
             <Routes>
               <Route path = "/" element =
-                {<DisplayGames filterContent= {searchVal} />} 
+                {<>
+                <SearchBar updateContent = {setSearchVal} />
+                <DisplayGames filterContent= {searchVal} updateContent = {setSearchVal} />
+                </>
+                } 
+               />
+                <Route path = "/Vanilla-Wordle" element =
+                {
+                <MainGame />
+                } 
                />
                <Route path = "/:wildcard" element =
-                {<MainGame />} 
+                {
+                <div>
+                  THIS IS GONNA BE THAT THING
+                </div>
+                } 
                />
             </Routes>
       </div>
