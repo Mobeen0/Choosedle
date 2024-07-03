@@ -25,7 +25,6 @@ function GameCard(props){
             <div className="p-2">
             
                 <h2 className="font-bold text-lg mb-2 "><span className = "text-black">{props.heading}</span></h2>
-            
                 <span className="text-sm text-black text-justify">{props.description}</span>
             </div>
             

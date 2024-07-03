@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { Route, Routes,useLocation } from 'react-router-dom';
+import { Route, Routes} from 'react-router-dom';
 
 import './App.css'
 import './stylesheet/scrollbar.css';
@@ -17,7 +17,7 @@ import OtherGames from './components/OtherGames';
 
 function App() {
   let [searchVal,setSearchVal] = useState('');
-  const path = useLocation();
+  let [vanillaWord,setVanillaWord] = useState('');
   return (
     <div>
       <div className = "scroll-smooth overflow-x-hidden overscroll-container">
@@ -33,12 +33,25 @@ function App() {
                />
                 <Route path = "/Vanilla-Wordle" element =
                 {
-                <MainGame />
+                <MainGame wordPassed = '' />
                 } 
                />
-               <Route path = "/:wildcard" element =
+               <Route path = "/Songs-Wordle" element =
                 {
-                <OtherGames gameName={path.pathname.slice(1)}/>
+                <OtherGames gameName = {'Songs Wordle'}
+                wordPassed = {'The Song Name'} />
+                } 
+               />
+               <Route path = "/TV-Shows-Wordle" element =
+                {
+                <OtherGames gameName = {'TV-Shows Wordle'}
+                wordPassed = {'The TV-Show Name'}/>
+                } 
+               />
+               <Route path = "/Movies-Wordle" element =
+                {
+                <OtherGames gameName = {'Movies Wordle'}
+                wordPassed = {'The Movie Name'}/>
                 } 
                />
             </Routes>

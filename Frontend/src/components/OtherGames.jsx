@@ -4,19 +4,23 @@ import VanillaGameRow from './VanillaGameRow';
 import {useState,useEffect} from 'react';
 
 function OtherGames(props) {
+  let wordLength = props.wordPassed.length;
+
   let [counter,setCounter] = useState(0);
   let [currRow,setCurrRow] = useState(0);
-  let [currWord,setCurrWord] = useState(Array(5).fill(''));
+  let [currWord,setCurrWord] = useState(Array(wordLength).fill(''));
   let [backPress,setBackPress]  = useState(0);
   let [mounted,setMounted] = useState(false);
 
+  
 
-  let [currWord1,setCurrWord1] = useState(Array(5).fill(''));
-  let [currWord2,setCurrWord2] = useState(Array(5).fill(''));
-  let [currWord3,setCurrWord3] = useState(Array(5).fill(''));
-  let [currWord4,setCurrWord4] = useState(Array(5).fill(''));
-  let [currWord5,setCurrWord5] = useState(Array(5).fill(''));
-  let [currWord6,setCurrWord6] = useState(Array(5).fill(''));
+
+  let [currWord1,setCurrWord1] = useState(Array(wordLength).fill(''));
+  let [currWord2,setCurrWord2] = useState(Array(wordLength).fill(''));
+  let [currWord3,setCurrWord3] = useState(Array(wordLength).fill(''));
+  let [currWord4,setCurrWord4] = useState(Array(wordLength).fill(''));
+  let [currWord5,setCurrWord5] = useState(Array(wordLength).fill(''));
+  let [currWord6,setCurrWord6] = useState(Array(wordLength).fill(''));
 
 
   useEffect(()=>{
@@ -29,7 +33,7 @@ function OtherGames(props) {
       setCurrWord(currWord.slice(0,counter),'',...currWord.slice(counter+1));
       setCounter(counter-1);
       if(counter==1){
-        setCurrWord(Array(5).fill(''));
+        setCurrWord(Array(wordLength).fill(''));
       }
     }
   },[backPress]);
@@ -62,19 +66,19 @@ function OtherGames(props) {
   let handleKeyDown = (event)=>{
     event.preventDefault();
     console.log(currRow);
-    if(event.key === 'Enter' && counter>=5 && currRow<=5){ // add condition to check for valid word
+    if(event.key === 'Enter' && counter>=wordLength && currRow<=5){ // add condition to check for valid word
       setCurrRow(currRow+1);
       setCounter(0);
-      setCurrWord(Array(5).fill(''));
+      setCurrWord(Array(wordLength).fill(''));
     }
     else{
       if(event.key==='Backspace' && counter>0){
         setBackPress(backPress+1);
       }
       else{
-        if(counter<5 && event.key.length === 1 && (event.key.charCodeAt(0)>=65 && event.key.charCodeAt(0)<=90
+        if(counter<wordLength && event.key.length === 1 && (event.key.charCodeAt(0)>=65 && event.key.charCodeAt(0)<=90
         || event.key.charCodeAt(0)>=97 && event.key.charCodeAt(0)<=122)){
-          setCurrWord([...currWord.slice(0,counter),event.key,...currWord.slice(counter+1,6)]);
+          setCurrWord([...currWord.slice(0,counter),event.key,...currWord.slice(counter+1,wordLength+1)]);
           setCounter(counter+1);   
         }
       }
