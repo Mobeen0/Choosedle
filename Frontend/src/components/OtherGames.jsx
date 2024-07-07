@@ -25,21 +25,6 @@ function OtherGames(props) {
 
 
   useEffect(()=>{
-    console.log(props)
-      const getSongWord = async ()=>{
-      try{
-        const response = await axios.get('http://localhost:5000/SongWord')
-        console.log(response.data)
-        props.setJSON(response.data)
-        props.setWord(response.data.data)
-
-        
-      }catch(err){
-          console.log('Error Occured')
-      }
-    }
-    getSongWord()
-    console.log('it has been done indeed Song')
     setMounted(true);
   },[])
 
@@ -94,7 +79,13 @@ function OtherGames(props) {
       else{
         if(counter<wordLength && event.key.length === 1 && (event.key.charCodeAt(0)>=65 && event.key.charCodeAt(0)<=90
         || event.key.charCodeAt(0)>=97 && event.key.charCodeAt(0)<=122)){
-          setCurrWord([...currWord.slice(0,counter),event.key,...currWord.slice(counter+1,wordLength+1)]);
+          if((event.key.charCodeAt(0)>=97 && event.key.charCodeAt(0)<=122)){
+            setCurrWord([...currWord.slice(0,counter),event.key.toUpperCase(),...currWord.slice(counter+1,wordLength+1)]);
+          }
+          else{
+            setCurrWord([...currWord.slice(0,counter),event.key,...currWord.slice(counter+1,wordLength+1)]);
+          }
+          
           setCounter(counter+1);   
         }
       }
@@ -117,12 +108,12 @@ function OtherGames(props) {
               <img src = {`${props.songJSON.imageUrl}`} alt = "Image not found" className = "object-scale-down" />
             </div>
 
-            <VanillaGameRow wordPassed = {currWord1} />
-            <VanillaGameRow wordPassed = {currWord2} />
-            <VanillaGameRow wordPassed = {currWord3} />
-            <VanillaGameRow wordPassed = {currWord4} />
-            <VanillaGameRow wordPassed = {currWord5} />
-            <VanillaGameRow wordPassed = {currWord6} />
+            <VanillaGameRow wordPassed = {currWord1} key = {'orow'+1} />
+            <VanillaGameRow wordPassed = {currWord2} key = {'orow'+2} />
+            <VanillaGameRow wordPassed = {currWord3} key = {'orow'+3} />
+            <VanillaGameRow wordPassed = {currWord4} key = {'orow'+4} />
+            <VanillaGameRow wordPassed = {currWord5} key = {'orow'+5} />
+            <VanillaGameRow wordPassed = {currWord6} key = {'orow'+6} />
 
         </div>
 

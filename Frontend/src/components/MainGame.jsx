@@ -23,20 +23,6 @@ function MainGame(props) {
 
 
   useEffect(()=>{
-    console.log(props)
-      const getVanillaWord = async ()=>{
-      try{
-        const response = await axios.get('http://localhost:5000/VanillaWord')
-        console.log(response.data.data)
-        props.setWord(response.data.data)
-
-        
-      }catch(err){
-          console.log('Error Occured')
-      }
-    }
-    getVanillaWord()
-    console.log('it has been done indeed')
     setMounted(true);
   },[])
   
@@ -91,13 +77,18 @@ function MainGame(props) {
       else{
         if(counter<5 && event.key.length === 1 && (event.key.charCodeAt(0)>=65 && event.key.charCodeAt(0)<=90
         || event.key.charCodeAt(0)>=97 && event.key.charCodeAt(0)<=122)){
-          setCurrWord([...currWord.slice(0,counter),event.key,...currWord.slice(counter+1,6)]);
+          
+          if((event.key.charCodeAt(0)>=97 && event.key.charCodeAt(0)<=122)){
+            setCurrWord([...currWord.slice(0,counter),event.key.toUpperCase(),...currWord.slice(counter+1,6)]);
+          }
+          else{
+            setCurrWord([...currWord.slice(0,counter),event.key,...currWord.slice(counter+1,6)]);
+          }
           setCounter(counter+1);   
         }
       }
     }
   }
-
   
   return (
     <div className = "flex flex-col justify-center items-center relative">
@@ -110,12 +101,12 @@ function MainGame(props) {
               <span className = 'text-black'>Tries Left = {6-currRow}</span>
             </div>
 
-            <VanillaGameRow wordPassed = {currWord1} />
-            <VanillaGameRow wordPassed = {currWord2} />
-            <VanillaGameRow wordPassed = {currWord3} />
-            <VanillaGameRow wordPassed = {currWord4} />
-            <VanillaGameRow wordPassed = {currWord5} />
-            <VanillaGameRow wordPassed = {currWord6} />
+            <VanillaGameRow wordPassed = {currWord1} key = {'row'+1}/>
+            <VanillaGameRow wordPassed = {currWord2} key = {'row'+2} />
+            <VanillaGameRow wordPassed = {currWord3} key = {'row'+3} />
+            <VanillaGameRow wordPassed = {currWord4} key = {'row'+4} />
+            <VanillaGameRow wordPassed = {currWord5} key = {'row'+5} />
+            <VanillaGameRow wordPassed = {currWord6} key = {'row'+6} />
 
         </div>
 

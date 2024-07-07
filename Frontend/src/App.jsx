@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import { Route, Routes} from 'react-router-dom';
 
 import './App.css'
@@ -21,6 +21,7 @@ function App() {
   let [songJSON,setSongJSON] = useState({});
   let [songName,setSongName] = useState('');
   
+
   return (
     <div>
       <div className = "scroll-smooth overflow-x-hidden overscroll-container">
@@ -31,6 +32,7 @@ function App() {
                 {<>
                 <SearchBar updateContent = {setSearchVal} />
                 <DisplayGames filterContent= {searchVal} updateContent = {setSearchVal} setVanillaWord1 = {setVanillaWord} setSongJSON1 = {setSongJSON} />
+                
                 </>
                 } 
                />
@@ -42,7 +44,7 @@ function App() {
                <Route path = "/SongsWordle" element =
                 {
                 <OtherGames gameName = {'Songs Wordle'}
-                wordPassed = {songName} setJSON = {setSongJSON} songJSON = {songJSON} setWord= {setSongName} />
+                songJSON = {songJSON} />
                 } 
                />
                <Route path = "/TVShowsWordle" element =

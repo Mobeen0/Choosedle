@@ -21,7 +21,7 @@ function DisplayGames(props){
                     (game,index)=>{
                         return(
                             <GameCard toshow = {game.toshow} heading ={game.heading} description = {game.description} 
-                            primColor = {game.mainColor} secondColor = {game.secondColor} updateContent = {props.UpdateContent} setVanillaWord = {props.setVanillaWord1}
+                            primColor = {game.mainColor} secondColor = {game.secondColor} updateContent = {props.updateContent} setVanillaWord = {props.setVanillaWord1}
                             setSongJSON = {props.setSongJSON1} pathStr = {game.pathStr} key  ={'game'+index} />
                         )
                     }

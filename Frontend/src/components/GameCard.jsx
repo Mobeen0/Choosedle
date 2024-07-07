@@ -1,7 +1,7 @@
 
 import { IoPlayCircleSharp } from "react-icons/io5";
 import {useRef} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -23,7 +23,6 @@ function GameCard(props){
         try{
             const response = await axios.get('http://localhost:5000/VanillaWord')
             props.setVanillaWord(response.data.data)
-            console.log('ended up with', response.data.data)
         }catch(err){
             console.log('Error Occured')
         }
@@ -39,10 +38,12 @@ function GameCard(props){
     }
 
     const setWords = ()=>{
-        getSongWord().then(getVanillaWord()).then(()=>{console.log('It has been done')
+        getSongWord().then(getVanillaWord()).then(()=>{
+            console.log('It has been done')
             return
         });
     }
+    
 
     return(
         <div className="w-60 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl cursor-pointer mb-3" 
