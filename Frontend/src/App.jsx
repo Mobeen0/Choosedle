@@ -34,24 +34,24 @@ function App() {
                 </>
                 } 
                />
-                <Route path = "/Vanilla-Wordle" element =
+                <Route path = "/VanillaWordle" element =
                 {
                 <MainGame wordPassed = {vanillaWord} setWord = {setVanillaWord}/>
                 } 
                />
-               <Route path = "/Songs-Wordle" element =
+               <Route path = "/SongsWordle" element =
                 {
                 <OtherGames gameName = {'Songs Wordle'}
-                wordPassed = {songName} setJSON = {setSongJSON} songJSON = {songJSON} />
+                wordPassed = {songName} setJSON = {setSongJSON} songJSON = {songJSON} setWord= {setSongName} />
                 } 
                />
-               <Route path = "/TV-Shows-Wordle" element =
+               <Route path = "/TVShowsWordle" element =
                 {
                 <OtherGames gameName = {'TV-Shows Wordle'}
                 wordPassed = {'The TV-Show Name'}/>
                 } 
                />
-               <Route path = "/Movies-Wordle" element =
+               <Route path = "/MoviesWordle" element =
                 {
                 <OtherGames gameName = {'Movies Wordle'}
                 wordPassed = {'The Movie Name'}/>

@@ -89,15 +89,19 @@ span{
 .mainGame{
     background:#fffaf0;
     width:800px;
-    height:700px;
+    height:750px;
     @media(orientation:portrait){
         width:400px;
     }
 }
 
 .otherGameImage{
-    width:250px;
+    max-width:250px;
     @media(orientation:portrait){
         width:170px;
     }
+}
+
+.otherGameImage img{
+    max-width:250px;
 }

@@ -8,7 +8,6 @@ import axios from 'axios';
 function GameCard(props){
 
     let anchorRef = useRef(null);
-    let history = useNavigate();
 
     let hoverState = ()=>{
         anchorRef.current.style.background = `${props.primColor}`;
@@ -57,7 +56,7 @@ function GameCard(props){
             </div>
             
             <div className="m-2">
-                <Link to={`${props.heading}`} className="text-white bg-purple-600 px-3 py-1 rounded-md flex flex-row items-center duration-75"
+                <Link to={`${props.pathStr}`} className="text-white bg-purple-600 px-3 py-1 rounded-md flex flex-row items-center duration-75"
                  style = {{background:`${props.secondColor}`, color:`${props.primColor}`}} ref = {anchorRef} 
                  onMouseEnter = {hoverState} onMouseLeave = {originalState} onClick = {
                     ()=>{

@@ -94,7 +94,7 @@ let songFunc = async (req, res) => {
 
     if (response.data.tracks.items.length > 0) {
       const track = response.data.tracks.items[0];
-      randomSongImUrl = track.album.images[0].url; // Get the largest image
+      randomSongImUrl = track.album.images[1].url; // Get the largest image
     } else {
       throw new Error('No tracks found');
     }

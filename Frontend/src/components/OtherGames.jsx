@@ -31,6 +31,7 @@ function OtherGames(props) {
         const response = await axios.get('http://localhost:5000/SongWord')
         console.log(response.data)
         props.setJSON(response.data)
+        props.setWord(response.data.data)
 
         
       }catch(err){
@@ -113,7 +114,7 @@ function OtherGames(props) {
             </div>
 
             <div className = "otherGameImage aspect-square bg-black self-center mb-3">
-              <img src = {`${props.songJSON.imageUrl}`} alt = "Image not found" className = "object-cover" />
+              <img src = {`${props.songJSON.imageUrl}`} alt = "Image not found" className = "object-scale-down" />
             </div>
 
             <VanillaGameRow wordPassed = {currWord1} />
