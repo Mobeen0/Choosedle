@@ -21,7 +21,7 @@ function GameCard(props){
 
     const getVanillaWord = async ()=>{
         try{
-            const response = await axios.get('http://localhost:5000/VanillaWord')
+            const response = await axios.get('choosedle-server.vercel.app/VanillaWord')
             props.setVanillaWord(response.data.data)
         }catch(err){
             console.log('Error Occured')
@@ -30,7 +30,7 @@ function GameCard(props){
 
     const getSongWord = async ()=>{
         try{
-            const response2 = await axios.get('http://localhost:5000/SongWord')
+            const response2 = await axios.get('choosedle-server.vercel.app/SongWord')
             props.setSongJSON(response2.data)
         }catch(err){
             console.log('Error Occured')
