@@ -31,6 +31,7 @@ function GameCard(props){
     const getSongWord = async ()=>{
         try{
             const response2 = await axios.get('choosedle-server.vercel.app/SongWord')
+            console.log(response2.data);
             props.setSongJSON(response2.data)
         }catch(err){
             console.log('Error Occured')
