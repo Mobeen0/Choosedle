@@ -18,6 +18,9 @@ import OtherGames from './components/OtherGames';
 function App() {
   let [searchVal,setSearchVal] = useState('');
   let [vanillaWord,setVanillaWord] = useState('');
+  let [songJSON,setSongJSON] = useState({});
+  let [songName,setSongName] = useState('');
+  
   return (
     <div>
       <div className = "scroll-smooth overflow-x-hidden overscroll-container">
@@ -27,19 +30,19 @@ function App() {
               <Route path = "/" element =
                 {<>
                 <SearchBar updateContent = {setSearchVal} />
-                <DisplayGames filterContent= {searchVal} updateContent = {setSearchVal} />
+                <DisplayGames filterContent= {searchVal} updateContent = {setSearchVal} setVanillaWord1 = {setVanillaWord} setSongJSON1 = {setSongJSON} />
                 </>
                 } 
                />
                 <Route path = "/Vanilla-Wordle" element =
                 {
-                <MainGame wordPassed = '' />
+                <MainGame wordPassed = {vanillaWord} setWord = {setVanillaWord}/>
                 } 
                />
                <Route path = "/Songs-Wordle" element =
                 {
                 <OtherGames gameName = {'Songs Wordle'}
-                wordPassed = {'The Song Name'} />
+                wordPassed = {songName} setJSON = {setSongJSON} songJSON = {songJSON} />
                 } 
                />
                <Route path = "/TV-Shows-Wordle" element =

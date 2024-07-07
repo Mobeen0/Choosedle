@@ -2,6 +2,7 @@ import '../stylesheet/global.css';
 import VanillaGameRow from './VanillaGameRow';
 
 import {useState,useEffect} from 'react';
+import axios from 'axios';
 
 function MainGame(props) {
   let [counter,setCounter] = useState(0);
@@ -19,10 +20,26 @@ function MainGame(props) {
   let [currWord6,setCurrWord6] = useState(Array(5).fill(''));
 
 
+
+
   useEffect(()=>{
+    console.log(props)
+      const getVanillaWord = async ()=>{
+      try{
+        const response = await axios.get('http://localhost:5000/VanillaWord')
+        console.log(response.data.data)
+        props.setWord(response.data.data)
+
+        
+      }catch(err){
+          console.log('Error Occured')
+      }
+    }
+    getVanillaWord()
+    console.log('it has been done indeed')
     setMounted(true);
   },[])
-
+  
 
   useEffect(()=>{
     if(mounted){
@@ -85,7 +102,7 @@ function MainGame(props) {
   return (
     <div className = "flex flex-col justify-center items-center relative">
       <div className = "text-3xl font-black">
-        <span>Vanilla Worlde</span>
+        <span>Vanilla Wordle</span>
       </div>
         <div className = "flex flex-col rounded-xl mainGame text-center mt-5 opacity-75" tabIndex={0} onKeyDown = {handleKeyDown}
          contentEditable="true" autoFocus style = {{ caretColor: 'transparent' }}>

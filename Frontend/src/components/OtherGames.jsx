@@ -1,10 +1,11 @@
 import '../stylesheet/global.css';
 import VanillaGameRow from './VanillaGameRow';
+import axios from 'axios'
 
 import {useState,useEffect} from 'react';
 
 function OtherGames(props) {
-  let wordLength = props.wordPassed.length;
+  let wordLength = props.songJSON.data?props.songJSON.data.length:5;
 
   let [counter,setCounter] = useState(0);
   let [currRow,setCurrRow] = useState(0);
@@ -24,6 +25,20 @@ function OtherGames(props) {
 
 
   useEffect(()=>{
+    console.log(props)
+      const getSongWord = async ()=>{
+      try{
+        const response = await axios.get('http://localhost:5000/SongWord')
+        console.log(response.data)
+        props.setJSON(response.data)
+
+        
+      }catch(err){
+          console.log('Error Occured')
+      }
+    }
+    getSongWord()
+    console.log('it has been done indeed Song')
     setMounted(true);
   },[])
 
@@ -91,14 +106,14 @@ function OtherGames(props) {
       <div className = "text-3xl font-black">
         <span>{props.gameName}</span>
       </div>
-        <div className = "flex flex-col rounded-xl mainGame text-center mt-5 opacity-75" tabIndex={0} onKeyDown = {handleKeyDown}
+        <div className = "flex flex-col rounded-xl mainGame text-center mt-5" tabIndex={0} onKeyDown = {handleKeyDown}
          contentEditable="true" autoFocus style = {{ caretColor: 'transparent' }}>
             <div className = 'text-2xl font-black'>
               <span className = 'text-black'>Tries Left = {6-currRow}</span>
             </div>
 
             <div className = "otherGameImage aspect-square bg-black self-center mb-3">
-
+              <img src = {`${props.songJSON.imageUrl}`} alt = "Image not found" className = "object-cover" />
             </div>
 
             <VanillaGameRow wordPassed = {currWord1} />
