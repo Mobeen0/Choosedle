@@ -13,11 +13,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// MongoClient.connect(connectionString).then(()=>{
-//   console.log('Connected to the database')
-// }).catch((error)=>{
-//   console.log('an error occured', error)
-// })
 
 app.get('/', (req,res)=>{console.log('it is what it is')
   res.status(200).send('It is what it is');
