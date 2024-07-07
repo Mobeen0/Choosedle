@@ -19,8 +19,8 @@ app.use(express.json());
 //   console.log('an error occured', error)
 // })
 
-app.get('/test', (req,res)=>{console.log('it is what it is')
-  res.send('It is what it is');
+app.get('/', (req,res)=>{console.log('it is what it is')
+  res.status(200).send('It is what it is');
 })
 
 let randomWord = '';
