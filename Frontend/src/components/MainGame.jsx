@@ -2,7 +2,6 @@ import '../stylesheet/global.css';
 import VanillaGameRow from './VanillaGameRow';
 
 import {useState,useEffect} from 'react';
-import axios from 'axios';
 
 function MainGame(props) {
   let [counter,setCounter] = useState(0);
@@ -29,7 +28,7 @@ function MainGame(props) {
 
   useEffect(()=>{
     if(mounted){
-      setCurrWord(currWord.slice(0,counter),'',...currWord.slice(counter+1));
+      setCurrWord(currWord.slice(0,counter),' ',currWord.slice(counter+1));
       setCounter(counter-1);
       if(counter==1){
         setCurrWord(Array(5).fill(''));
@@ -56,7 +55,6 @@ function MainGame(props) {
       if(currRow===5){
         setCurrWord6(currWord);
       }
-      console.log(currWord);
   },[currWord,currRow])
 
   
@@ -64,8 +62,11 @@ function MainGame(props) {
   
   let handleKeyDown = (event)=>{
     event.preventDefault();
-    console.log(currRow);
     if(event.key === 'Enter' && counter>=5 && currRow<=5){ // add condition to check for valid word
+      if(currWord.join('') === props.wordPassed){
+        console.log('Correct Word');
+      }
+      console.log(currWord.join(''))
       setCurrRow(currRow+1);
       setCounter(0);
       setCurrWord(Array(5).fill(''));
@@ -84,7 +85,7 @@ function MainGame(props) {
           else{
             setCurrWord([...currWord.slice(0,counter),event.key,...currWord.slice(counter+1,6)]);
           }
-          setCounter(counter+1);   
+          setCounter(counter+1);
         }
       }
     }
@@ -100,16 +101,15 @@ function MainGame(props) {
             <div className = 'text-2xl font-black'>
               <span className = 'text-black'>Tries Left = {6-currRow}</span>
             </div>
-
-            <VanillaGameRow wordPassed = {currWord1} key = {'row'+1}/>
-            <VanillaGameRow wordPassed = {currWord2} key = {'row'+2} />
-            <VanillaGameRow wordPassed = {currWord3} key = {'row'+3} />
-            <VanillaGameRow wordPassed = {currWord4} key = {'row'+4} />
-            <VanillaGameRow wordPassed = {currWord5} key = {'row'+5} />
-            <VanillaGameRow wordPassed = {currWord6} key = {'row'+6} />
+            <span></span>
+            <VanillaGameRow wordPassed = {currWord1} actualWord= {props.wordPassed} key = {'row'+1} />
+            <VanillaGameRow wordPassed = {currWord2} actualWord= {props.wordPassed} key = {'row'+2} />
+            <VanillaGameRow wordPassed = {currWord3} actualWord= {props.wordPassed} key = {'row'+3} />
+            <VanillaGameRow wordPassed = {currWord4} actualWord= {props.wordPassed} key = {'row'+4} />
+            <VanillaGameRow wordPassed = {currWord5} actualWord= {props.wordPassed} key = {'row'+5} />
+            <VanillaGameRow wordPassed = {currWord6} actualWord= {props.wordPassed} key = {'row'+6} />
 
         </div>
-
     </div>
   )
 }
