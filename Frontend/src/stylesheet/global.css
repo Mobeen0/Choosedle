@@ -89,7 +89,7 @@ span{
 .mainGame{
     background:#fffaf0;
     width:800px;
-    height:750px;
+    height:800px;
     @media(orientation:portrait){
         width:400px;
     }
