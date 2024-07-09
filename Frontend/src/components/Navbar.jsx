@@ -10,7 +10,7 @@ function Navbar(){
                 <div className = "text-center basis 2 h-fit imageCont flex flex-row items-center">
                     <img src = {choosedleLogo} className = "logoimg" />
                     <Link to ='/'>
-                        <span className= "pl-3 font-black text-3xl text-white tracking-widest logoName hover:text-cyan-300 hover:cursor-pointer portrait:text-base">ChooseDle</span>
+                        <span className= "pl-3 font-black text-3xl  tracking-widest logoName bg-clip-text text-transparent bg-gradient-to-br from-green-400 to-blue-400 hover:cursor-pointer portrait:text-base">ChooseDle</span>
                     </Link>
                 </div>
                 <div className = "text-center basis 6 flex flex-row items-center">

@@ -14,12 +14,10 @@ import OtherGames from './components/OtherGames';
 
 
 
-
 function App() {
   let [searchVal,setSearchVal] = useState('');
   let [vanillaWord,setVanillaWord] = useState('');
   let [songJSON,setSongJSON] = useState({});
-  let [songName,setSongName] = useState('');
   
 
   return (

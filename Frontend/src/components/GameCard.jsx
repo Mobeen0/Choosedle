@@ -1,13 +1,17 @@
 
 import { IoPlayCircleSharp } from "react-icons/io5";
-import {useRef} from 'react';
-import {Link} from 'react-router-dom';
+import {useRef,useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
+import loadingGif from '../assets/ZKZg.gif'
 import axios from 'axios';
 
 
 function GameCard(props){
 
     let anchorRef = useRef(null);
+    let navigate = useNavigate();
+
+    const [loading,setLoading] = useState(false);
 
     let hoverState = ()=>{
         anchorRef.current.style.background = `${props.primColor}`;
@@ -38,18 +42,12 @@ function GameCard(props){
         }
     }
 
-    const setWords = ()=>{
-        getSongWord().then(getVanillaWord()).then(()=>{
-            console.log('It has been done')
-            return
-        });
-    }
     
 
     return(
-        <div className="w-60 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl cursor-pointer mb-3" 
-        onClick = {setWords}>
-        
+        <div className={`w-60 p-2 bg-white rounded-xl ${loading? 'relative opacity-50': ''} $
+         transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl cursor-pointer mb-3`}>
+            {loading && <img src={loadingGif} alt="Loading" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-50" />}
             <img className="h-40 object-cover rounded-xl" src={props.toshow} alt="" />
             <div className="p-2">
             
@@ -58,11 +56,16 @@ function GameCard(props){
             </div>
             
             <div className="m-2">
-                <Link to={`${props.pathStr}`} className="text-white bg-purple-600 px-3 py-1 rounded-md flex flex-row items-center duration-75"
+                <Link className="text-white bg-purple-600 px-3 py-1 rounded-md flex flex-row items-center duration-75"
                  style = {{background:`${props.secondColor}`, color:`${props.primColor}`}} ref = {anchorRef} 
                  onMouseEnter = {hoverState} onMouseLeave = {originalState} onClick = {
-                    ()=>{
+                    async ()=>{
+                        setLoading(true);
                         props.updateContent('');
+                        await getSongWord();
+                        await getVanillaWord();
+                        setLoading(false);
+                        navigate(`${props.pathStr}`)
                     }
                     }> 
                     <IoPlayCircleSharp className = "text-3xl" /> 
