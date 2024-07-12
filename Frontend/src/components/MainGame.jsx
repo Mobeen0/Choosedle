@@ -1,6 +1,6 @@
 
 import {useState,useEffect} from 'react';
-import {observer, useLocalObservable} from 'mobx-react-lite';
+import {observer, useLocalObservable} from "mobx-react-lite";
 import Guess from './Guess';
 import ScreenKeyboard from './ScreenKeyboard';
 import gameStore from '../config/gameStore';

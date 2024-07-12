@@ -3,9 +3,6 @@ import {useEffect} from 'react';
 
 function Guess(props) {
 
-  useEffect(()=>{
-    console.log(props.word);
-  },[])
   return (
     <div className="mb-2 grid grid-cols-5 gap-2 w-1/4 portrait:w-4/5">
       {new Array(5).fill(0).map((_, i) => {
