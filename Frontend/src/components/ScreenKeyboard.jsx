@@ -1,4 +1,4 @@
-import { observer } from "mobx-react-lite"
+import { observer } from "mobx-react"
 
 export default observer(function ScreenKeyboard({ store }) {
   const qwerty = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm']
