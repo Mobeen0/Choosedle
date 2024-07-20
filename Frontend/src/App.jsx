@@ -11,6 +11,7 @@ import DisplayGames from './components/DisplayGames';
 import SearchBar from './components/SearchBar';
 import MainGame from './components/MainGame';
 import OtherGames from './components/OtherGames';
+import LandingPage from './components/LandingPage';
 
 
 
@@ -21,16 +22,14 @@ function App() {
   
 
   return (
-    <div>
+    <div className = "bg-gray-900">
       <div className = "scroll-smooth overflow-x-hidden overscroll-container">
-            <Background />
-            <Navbar />
+            {/* <Background /> */}
+            {/* <Navbar /> */}
             <Routes>
               <Route path = "/" element =
                 {<>
-                <SearchBar updateContent = {setSearchVal} />
-                <DisplayGames filterContent= {searchVal} updateContent = {setSearchVal} setVanillaWord1 = {setVanillaWord} setSongJSON1 = {setSongJSON} />
-                
+                < LandingPage setVanillaFunc={setVanillaWord} setSongFunc={setSongJSON} />
                 </>
                 } 
                />

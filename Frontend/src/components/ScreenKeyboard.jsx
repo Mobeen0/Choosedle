@@ -5,7 +5,7 @@ export default observer(function ScreenKeyboard({ store }) {
   return (
     <div>
       {qwerty.map((row) => (
-        <div className="flex justify-center mt-5">
+        <div className="flex justify-center mt-5" key = {row}>
           {row.split('').map((char) => {
             const bgColor = store.exactGuesses.includes(char.toUpperCase())
               ? 'bg-green-400'
@@ -15,7 +15,7 @@ export default observer(function ScreenKeyboard({ store }) {
               ? 'bg-gray-400'
               : 'bg-gray-200'
             return (
-              <div
+              <div key = {row + char}
                 className={`rounded-md m-px flex h-10 w-10 items-center justify-center uppercase ${bgColor} z-20`}
               >
                 {char}
